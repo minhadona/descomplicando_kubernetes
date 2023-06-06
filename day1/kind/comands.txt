@@ -1,0 +1,50 @@
+kubectl get nodes
+kubectl get pods -n namespace
+kubectl get pods -n namespace -o wide
+kubectl get pods -A
+kubectl get deployment 
+kubectl get deployment -A 
+kubectl get service
+kubectl get replicaset
+
+po = pods
+svc = service 
+deploy = deployment
+
+-----------------
+
+auto-completion for namespaces and all available resources:
+
+sudo apt install bash-completion
+source <(kubectl completion bash)
+kubectl completion bash > ~/.kube/completion.bash.inc
+source '/home/gabriela/.kube/completion.bash.inc' 
+source /home/gabriela/.bash_profile
+
+-----------------
+
+# creating a pod with nginx named giropops:
+kubectl run giropops --image nginx
+# opening bash on giropops
+kubectl exec giropos -i -t -- bash
+# deleting pod gipopops
+kubectl delete pods giropos
+
+------------------
+alias k=kubectl
+
+k get pods 
+# check ips 
+k get svc 
+
+k expose pods giropops
+error: couldn't find port via --port flag or introspection
+
+# CREATE ON DRY RUN [not create]
+kubectl run giropops --image nginx --port 80 --dry-run=client
+# get the yaml of this command !!!!!!!!!!
+kubectl run giropops --image nginx --port 80 --dry-run client -o yaml
+
+# create pod accordingly to yaml
+kubectl apply -f pod.yaml 
+
