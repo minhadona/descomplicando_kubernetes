@@ -1,0 +1,3 @@
+# check detailed informations about this image, what container ID this image is it etc
+kubectl describe pods nginx
+
